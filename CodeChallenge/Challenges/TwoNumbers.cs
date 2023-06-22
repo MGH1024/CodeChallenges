@@ -1,0 +1,19 @@
+﻿namespace CodeChallenge.Challenges;
+
+public class TwoNumbers
+{
+    public static int[] TwoSum(int[] nums, int target)
+    {
+        var dic = new Dictionary<int, int>();
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (dic.ContainsKey(nums[i]))
+                return new int[] { dic[nums[i]], i };
+            else
+                dic[target - nums[i]] = i;
+        }
+
+        return Array.Empty<int>();
+    }
+}
